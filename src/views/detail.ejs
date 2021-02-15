@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notitas</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="brand-wrapper">
+                <div class="logo">
+                    <img src="/images/post-it.png" alt="">
+                </div>
+            </div>        
+        </nav>
+    </header>
+
+    <main>
+        <section class="editForm">
+            <h1>Editar nota</h1>
+            <form method="POST" action="/edit/<%= nota[0].id %>?_method=PUT">
+                <div>
+                    <label class="editTitle" for="" style="width: 65px;">Título</label>
+                    <input class="" type="text" name="title" value="<%= typeof nota != 'undefined' && nota.length > 0 ? nota[0].titulo : '' %>">
+                </div>
+                <div>
+                    <label class="editText" for="message" style="width: 65px;">Texto</label>
+                    <textarea name="message" id="message" cols="30" rows="10"><%= typeof nota != 'undefined' ? nota[0].texto : '' %></textarea>
+                </div>
+                <button class="editSubmit" type="submit">Editar</button>
+                <button class="backSubmit" type="button" onclick="javascript: window.location = '/';">Volver</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
